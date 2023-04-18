@@ -54,4 +54,12 @@ let userPassword = prompt("Enter your password:");
 console.log("Dear User, your email is " + userEmail + "," + " your password is qwerty");  
 
 // 1.8. Напишіть скріпт, який вираховує кількість секунд в годині, в добі, в місяці, записує результати в відповідні змінні, і виводить їх значення на екран.
-let Date = 
+let secondsInHour = 60 * 60;
+console.log(secondsInHour);
+alert("The number of seconds in an hour: 3600")
+let secondsInDay = 60 * 60 * 24;
+console.log(secondsInDay);
+alert("The number of seconds in the day: 86400")
+let secondsInMonth = 60 * 60 * 60 * 12;
+console.log(secondsInMonth);
+alert("The number of seconds in the month: 2592000")
