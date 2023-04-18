@@ -60,6 +60,6 @@ alert("The number of seconds in an hour: 3600")
 let secondsInDay = 60 * 60 * 24;
 console.log(secondsInDay);
 alert("The number of seconds in the day: 86400")
-let secondsInMonth = 60 * 60 * 60 * 12;
+let secondsInMonth = 60 * 60 * 24 * 12;
 console.log(secondsInMonth);
-alert("The number of seconds in the month: 2592000")
+alert("The number of seconds in the month: 1036800")
