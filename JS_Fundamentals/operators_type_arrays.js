@@ -39,12 +39,31 @@ else {
 }
 
 // 2.4. Задано масив чисел, знайти число яке найбільш часто входить в масив, занести це число в новий масив і видалити всі входження цього числа із поточного масиву.
-/* let arr = [4, 5, 2, 1, 6, 5, 3, 5, 2, 5]
-let data = ... // 5
-...
-console.log(arr) // [4, 2, 1, 6, 3, 2] */
-
-
+let arr = [4, 5, 2, 1, 6, 5, 3, 5, 2, 5]
+let data;
+let count = {};
+let maxCount = 0;
+for (let i = 0; i < arr.length; i++) {
+  if (count[arr[i]] === undefined) {
+    count[arr[i]] = 1;
+  } 
+  else {
+    count[arr[i]]++;
+  }
+  if (count[arr[i]] > maxCount) {
+    maxCount = count[arr[i]];
+    data = arr[i];
+  }
+}
+let newArr = [];
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i] !== data) {
+    newArr.push(arr[i]);
+  }
+}
+console.log(data);
+console.log(newArr);
+ 
 /* 2.5. Користувач вводить три довжини сторін трикутника (використовуйте prompt () три рази для введення кожної сторони).
 Необхідно 
     a) визначити і вивести в консоль площу трикутника 
