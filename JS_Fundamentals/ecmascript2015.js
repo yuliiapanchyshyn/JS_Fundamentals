@@ -68,8 +68,7 @@ function mul(...params) {
 console.log(mul(1, "str", 2, 3, true));      
 console.log(mul(null, "str", false, true)); 
 
-/* 10.4.
-Напишіть функцію mapBuilder (keysArray, valuesArrays), яка приймає два масиви однакової довжини. Використовуючи ці масиви, функція повинна створювати об'єкт типу Map, ключами якого є значення з першого масиву, а значеннями Map - значення з другого масиву. Після цього функція повертає даний об'єкт Map.
+/* 10.4. Напишіть функцію mapBuilder (keysArray, valuesArrays), яка приймає два масиви однакової довжини. Використовуючи ці масиви, функція повинна створювати об'єкт типу Map, ключами якого є значення з першого масиву, а значеннями Map - значення з другого масиву. Після цього функція повертає даний об'єкт Map.
 Приклади використання:
 let keys = [1, 2, 3, 4];
 let values = ["div", "span", "b", "i"];
@@ -77,19 +76,42 @@ let map = mapBuilder(keys, values);
 console.log(map.size); // 4
 console.log(map.get(2)); // "span"
 */
+function mapBuilder(keysArray, valuesArray) {
+  if (keysArray.length !== valuesArray.length) {
+    throw new Error('Довжини масивів повинні бути однаковими');
+  }
+  let map = new Map();
+  for (let i = 0; i < keysArray.length; i++) {
+    map.set(keysArray[i], valuesArray[i]);
+  }
+  return map;
+}
 
-/* 10.5.
-За допомгою коду у нижче створюється масив, використовуючи цикл, до масиву записуються три функції. Логіка функцій проста, в консоль виводиться значення лічильника на момент створення функції.
+let keys = [1, 2, 3, 4];
+let values = ["div", "span", "b", "i"];
+let map = mapBuilder(keys, values);
+console.log(map.size); 
+console.log(map.get(2)); 
+
+/* 10.5. За допомгою коду у нижче створюється масив, використовуючи цикл, до масиву записуються три функції. Логіка функцій проста, в консоль виводиться значення лічильника на момент створення функції.
 На вигляд код виглядає логічним, але, якщо запустити цей код без змін, в консоль буде виведено двічі число 3.
 Використовуючи механізм замикання, внесіть у код зміни, щоб у консоль вивелися число 0 та число 2(відповідно до виклику). 
-
 var arr = [];
-
 for (var i = 0; i <= 2; i++) {
    arr[i] = function () {
       console.log(i);
    };
 }
-
 arr[0](); // 0
 arr[arr.length - 1](); // 2 */
+
+var arr = [];
+for (var i = 0; i <= 2; i++) {
+   arr[i] = (function (num) {
+      return function () {
+         console.log(num);
+      };
+   })(i);
+}
+arr[0](); 
+arr[arr.length - 1](); 
